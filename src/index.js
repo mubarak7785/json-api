@@ -3,24 +3,20 @@ const cors = require("cors")
 
 const app = express()
 app.use(cors())
-const port=process.env.PORT || 3456
+const port=process.env.PORT || 4322
 app.use(express.json())
 const connect = require("./configs/db")
 
 
 
-// const userController = require ("./controllers/user.controller")
-// const postController = require("./controllers/post.controller");
 
-// app.use("/post", postController);
-// app.use ("users",userController)
 
-const dataController=require("./controllers/data.controller")
-app.use("/data",dataController)
+const blogController=require("./controllers/blogs.controller")
+app.use("/blogs",blogController)
 app.listen(port,async function (req,res){
     try{
         connect();
-        console.log ("Listening Port 3456 ")
+        console.log ("Listening Port 4322 ")
     }catch(err){
         console.log(err.message)
     }
